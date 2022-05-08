@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 
 app.post('/serverless/query', (req, res) => {
 	console.log(req.body)
-
+	
 	console.log(req.body.query)
 	con.query(req.body.query, function (err, resed, fields) {
 		if (err) res.send(err);

@@ -2,15 +2,15 @@ import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
 import logoicon from '../assets/wave-data-logo.svg'
 function Login() {
-      let navigate = useNavigate();
+   let navigate = useNavigate();
    window.onload = (e) => {
-      if (Cookies.get("login") == "true") {      
-         navigate("/trials",{replace:true});
+      if (Cookies.get("login") == "true") {
+         navigate("/trials", { replace: true });
       }
    };
 
    function registerLink() {
-      navigate("/register",{replace:true});
+      navigate("/register", { replace: true });
    }
    async function LoginClick(event) {
       event.target.disabled = true;
@@ -33,27 +33,36 @@ function Login() {
          return;
       }
       try {
+         var details = {
+            "query": `SELECT COUNT(*) AS SIZE FROM WaveData.users WHERE email = "${emailTXT.value}" AND PASSWORD = "${passwordTXT.value}"`
+         };
+
+         var formBody = [];
+         for (var property in details) {
+            var encodedKey = encodeURIComponent(property);
+            var encodedValue = encodeURIComponent(details[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+         }
+         formBody = formBody.join("&");
          await fetch(`/serverless/query`, {
             "headers": {
                "Content-Type": "application/x-www-form-urlencoded",
                "mode": "cors"
             },
-            "body": {
-               "query": `SELECT * FROM users WHERE email == ${emailTXT.value} and password == ${passwordTXT.value}`
-            },
-            "method": "POST" 
+            "body": formBody,
+            "method": "POST"
          }).then(e => {
             return e.json();
-         }).then(e => {
-            console.log(e)
-            if (e.results[1]['(SV.size())'] == 1) {
+         }).then(e2 => {
+            console.log(e2)
+            if (e2[0].SIZE == 1) {
                LoadingICON.style.display = "none";
                buttonTextBox.style.display = "block";
                SuccessNotification.innerText = "Success!"
                SuccessNotification.style.display = "block";
                //Login success
                Cookies.set("login", "true");
-               navigate("/trials",{replace:true});
+               navigate("/trials", { replace: true });
 
             } else {
                LoadingICON.style.display = "none";
