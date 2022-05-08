@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { CurrencyDollarIcon } from "@heroicons/react/solid";
+import CurrencyDollarIcon from "@heroicons/react/solid/CurrencyDollarIcon";
 
 export default function UpdateTrialModal({
     show,

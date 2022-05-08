@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import './index.css'
-import React from 'react';
 import Cookies from 'js-cookie';
 export default function Header() {
 

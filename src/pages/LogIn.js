@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logoicon from '../assets/wave-data-logo.svg'
 function Login() {
       let navigate = useNavigate();
@@ -33,16 +33,19 @@ function Login() {
          return;
       }
       try {
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/Login?emailTXT=${encodeURIComponent(emailTXT.value)}&passwordTXT=${encodeURIComponent(passwordTXT.value)}`, {
+         await fetch(`/serverless/query`, {
             "headers": {
-               "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Content-Type": "application/x-www-form-urlencoded",
+               "mode": "cors"
             },
-            "body": null,
-            "method": "GET"
+            "body": {
+               "query": `SELECT * FROM users WHERE email == ${emailTXT.value} and password == ${passwordTXT.value}`
+            },
+            "method": "POST" 
          }).then(e => {
             return e.json();
          }).then(e => {
+            console.log(e)
             if (e.results[1]['(SV.size())'] == 1) {
                LoadingICON.style.display = "none";
                buttonTextBox.style.display = "block";

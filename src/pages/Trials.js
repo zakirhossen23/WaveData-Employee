@@ -1,7 +1,11 @@
-import { PlusSmIcon, ArrowRightIcon, UserIcon, CurrencyDollarIcon, GlobeAltIcon } from "@heroicons/react/solid";
+
+import PlusSmIcon from "@heroicons/react/solid/PlusSmIcon";
+import ArrowRightIcon from "@heroicons/react/solid/ArrowRightIcon";
+import UserIcon from "@heroicons/react/solid/UserIcon";
+import CurrencyDollarIcon from "@heroicons/react/solid/CurrencyDollarIcon";
+import GlobeAltIcon from "@heroicons/react/solid/GlobeAltIcon";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DUMMY_TRIALS_DATA } from "./data";
 import CreateTrialModal from '../components/modal/CrateTrial'
 
 function Trials() {
@@ -10,8 +14,6 @@ function Trials() {
    const [CreatemodalShow, setModalShow] = useState(false);
    const [startData, setStartData] = useState(0);
    const addTrial = () => {
-
-      // setData(prevState => [...prevState, newTrial]);
       setModalShow(true);
    };
 

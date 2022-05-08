@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowRightIcon, UserIcon, CurrencyDollarIcon, GlobeAltIcon, ChevronRightIcon, PlusSmIcon, TrashIcon, PencilIcon } from "@heroicons/react/solid";
+import ArrowRightIcon from "@heroicons/react/solid/ArrowRightIcon";
+import UserIcon from "@heroicons/react/solid/UserIcon";
+import CurrencyDollarIcon from "@heroicons/react/solid/CurrencyDollarIcon";
+import GlobeAltIcon from "@heroicons/react/solid/GlobeAltIcon";
+import ChevronRightIcon from "@heroicons/react/solid/ChevronRightIcon";
+import PlusSmIcon from "@heroicons/react/solid/PlusSmIcon";
+import TrashIcon from "@heroicons/react/solid/TrashIcon";
+import PencilIcon from "@heroicons/react/solid/PencilIcon";
 import { formatDistance } from 'date-fns'
 import Form from 'react-bootstrap/Form';
 

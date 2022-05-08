@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import Select from 'react-select';
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import { PlusSmIcon, ChevronRightIcon, PencilIcon, TrashIcon, PlusIcon, DocumentDuplicateIcon } from "@heroicons/react/solid";
-import { PieChart, Pie, Tooltip } from 'recharts';
+import PlusSmIcon from "@heroicons/react/solid/PlusSmIcon";
+import ChevronRightIcon from "@heroicons/react/solid/ChevronRightIcon";
+import PencilIcon from "@heroicons/react/solid/PencilIcon";
+import TrashIcon from "@heroicons/react/solid/TrashIcon";
+import PlusIcon from "@heroicons/react/solid/PlusIcon";
+import DocumentDuplicateIcon from "@heroicons/react/solid/DocumentDuplicateIcon";
 import axios from 'axios';
 import G6 from '@antv/g6';
 import UpdateSurveyModal from '../components/modal/UpdateSurvey'

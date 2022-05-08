@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 5000
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 var mysql = require('mysql');
@@ -24,17 +24,9 @@ con.connect(function (err) {
 });
 
 
-app.get('/serverless/student', (req, res) => {
-	con.query("SELECT * FROM WaveData.student", function (err, resed, fields) {
 
-		if (err) res.send(err);
-		res.json(resed);
-	});
-})
 
 const path = require('path')
-
-
 app.use(express.static(path.join(__dirname, '../', 'build')));
 app.get('/*', (req, res) => {
 	//   res.send(path.join(__dirname, '../', 'build', 'index.html'))
@@ -46,6 +38,15 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, '../', 'build', 'index.html'));
 })
 
+app.post('/serverless/query', (req, res) => {
+	console.log(req.body)
+
+	console.log(req.body.query)
+	con.query(req.body.query, function (err, resed, fields) {
+		if (err) res.send(err);
+		res.json(resed);
+	});
+})
 
 
 app.listen(PORT, () => {
