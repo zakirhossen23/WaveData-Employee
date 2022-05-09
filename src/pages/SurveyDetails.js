@@ -282,7 +282,7 @@ function SurveyDetails() {
       setstatus("loading...")
       setLimitedAnswerdata([])
       sleep(100)
-      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/LoadLimitedAnswers?surveyIDTXT=${parseInt(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/LoadLimitedAnswers?surveyIDTXT=${encodeURIComponent(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
             "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
@@ -434,7 +434,7 @@ function SurveyDetails() {
             all.push(<>
                <div style={{ display: "flex", width: "49%", alignItems: "center", fontSize: 19, justifyContent: "space-between" }} className="mt-3">
                   <span style={{ fontWeight: 700 }}>Answer {index + 1}</span>
-                  <input onKeyUp={(e) => { LimitedAnswerdata.filter(e2 => e2.id == itemQuestions.id)[0].answer = e.target.value; startTypingLimitedAnswers(e, itemQuestions) }} type="text" defaultValue={itemQuestions.answer} className="border py-1 px-2" placeholder="Answer" style={{ width: "69%" }} />
+                  <input onChange={(e) => { LimitedAnswerdata.filter(e2 => e2.id == itemQuestions.id)[0].answer = e.target.value; startTypingLimitedAnswers(e, itemQuestions) }} type="text" defaultValue={itemQuestions.answer} className="border py-1 px-2" placeholder="Answer" style={{ width: "65%" }} />
                   <button onClick={(e) => { DeleteLimitedAnswer(e, itemQuestions) }} orderid={index} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white">
                      <TrashIcon className="w-5 h-5" />
                   </button>
@@ -923,7 +923,7 @@ function SurveyDetails() {
       <>
          <div className="bg-white border border-gray-400 rounded-lg py-4 px-6 flex mb-2 items-center">
             <div onClick={() => navigate(-2)} className="flex items-center hover:cursor-pointer hover:underline decoration-gray-400">
-               <p className="text-gray-400">Trials</p>
+               <p className="text-gray-400">Courses</p>
                <ChevronRightIcon className="mx-1 w-5 h-5 text-gray-400" />
             </div>
             <div onClick={() => navigate(-1)} className="flex items-center hover:cursor-pointer hover:underline decoration-gray-400">
@@ -937,7 +937,7 @@ function SurveyDetails() {
          <div className={`bg-white border border-gray-400 rounded-lg overflow-hidden mb-2`}>
 
             <div className="flex p-6">
-               <img src={SURVEY_DATA?.image} alt="Survey" className="w-[128px] h-[128px] object-cover" />
+               <img src={SURVEY_DATA?.image} alt="Quiz" className="w-[128px] h-[128px] object-cover" />
                <div className="mx-8 flex-1">
                   <p className="text-3xl font-semibold">{SURVEY_DATA?.name}</p>
                   <p className="mt-6">{SURVEY_DATA?.description}</p>

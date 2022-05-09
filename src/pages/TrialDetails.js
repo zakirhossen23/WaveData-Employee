@@ -416,10 +416,6 @@ function TrialDetails() {
                   <GlobeAltIcon className="w-5 h-5 text-gray-500" />
                   <p className="text-gray-500 font-semibold ml-1">{`${TRIAL_DATA?.audience} contributor(s)`}</p>
                </div>
-               <div className="flex items-center ml-6">
-                  <CurrencyDollarIcon className="w-5 h-5 text-gray-500" />
-                  <p className="text-gray-500 font-semibold ml-1">{`Budget of $${TRIAL_DATA?.budget}`}</p>
-               </div>
             </div>
          </div>
          <div className="bg-white border border-gray-400 rounded-lg flex mt-4 px-4">
@@ -444,7 +440,7 @@ function TrialDetails() {
                   <h2 className="text-2xl font-semibold flex-1">Quizes</h2>
                   <button onClick={addSurvey} className="h-10 rounded-md shadow-md bg-black text-white flex py-2 px-4 items-center">
                      <PlusSmIcon className="w-5 h-5 text-white" />
-                     <p className="text-white ml-2">Survey</p>
+                     <p className="text-white ml-2">Quiz</p>
                   </button>
                </div>
                <table className="table-fixed">
@@ -474,7 +470,7 @@ function TrialDetails() {
                               <td className="py-3 px-3">{`${submission}/24`}</td>
                               <td className="py-3 px-3">{Lastsubmission ? formatDistance(new Date(Lastsubmission), new Date(), { addSuffix: true }) : '-'}</td>
                               <td className="flex justify-end py-3">
-                                 <button onClick={() => navigate(`/courses/${TRIAL_DATA.id}/survey/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white">
+                                 <button onClick={() => navigate(`/courses/${TRIAL_DATA.id}/Quiz/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white">
                                     <ArrowRightIcon className="w-5 h-5 text-gray-400 " />
                                  </button>
                               </td>
@@ -521,7 +517,7 @@ function TrialDetails() {
                               <td className="py-3 px-3">{`${submission}/24`}</td>
                               <td className="py-3 px-3">{Lastsubmission ? formatDistance(new Date(Lastsubmission), new Date(), { addSuffix: true }) : '-'}</td>
                               <td className="flex justify-end py-3">
-                                 <button onClick={() => navigate(`/courses/${TRIAL_DATA.id}/survey/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center">
+                                 <button onClick={() => navigate(`/courses/${TRIAL_DATA.id}/Quiz/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center">
                                     <ArrowRightIcon className="w-5 h-5 text-gray-400" />
                                  </button>
                               </td>
@@ -539,7 +535,7 @@ function TrialDetails() {
                   <div className="flex flex-col">
                      <h2 className="text-2xl font-semibold flex-1">Reward</h2>
                      <div>
-                        <h4 >Reward per survey</h4>
+                        <h4 >Reward per Quiz</h4>
                         <div className="flex gap-8 items-center ">
                            <select name='rewardselect'  defaultValue={REWARD_DATA.rewardtype ? (REWARD_DATA.rewardtype) : ("")} id='rewardselect' className="mt-1 h-10 px-2 rounded-md border border-gray-200 outline-none w-6/12">
                               <option value="">Select a reward</option>
@@ -564,76 +560,7 @@ function TrialDetails() {
 
                   </div>
                </Form>
-               <div className="bg-white border border-gray-400 rounded-lg py-4 px-6 flex flex-col mt-4">
-                  <div className="flex items-center">
-                     <h2 className="text-2xl font-semibold flex-1">Audiences</h2>
-                     <button onClick={() => addAudiance()} className="h-10 rounded-md shadow-md bg-black text-white flex py-2 px-4 items-center hover:bg-gray-600">
-                        <PlusSmIcon className="w-5 h-5 text-white" />
-                        <p className="text-white ml-2">Audience</p>
-                     </button>
-                  </div>
-                  <table className="table-fixed">
-                     <thead className="border-b border-b-gray-400">
-                        <tr>
-                           <th className="py-3 px-3">#</th>
-                           {AUDIENCES_COLS.map(({ id, title }) => {
-                              return (
-                                 <th key={id} className="text-left font-normal py-3 px-3">{title}</th>
-                              );
-                           })}
-                           <th className="py-3 px-3" />
-                        </tr>
-                     </thead>
-                     <tbody>
-                        {audiences.map((item, index) => {
-                           const IS_LAST = index === audiences.length - 1;
-                           return (
-                              <tr className={`border-b-gray-400 ${!IS_LAST ? 'border-b' : 'border-0'}`}>
-                                 <td className="flex py-3 px-3 items-center h-[72.5px]">{index + 1}</td>
-                                 <td className="py-3 px-3">
-                                    <input type="text" id="age-min" onChange={(e) => { audiences[index].AgeMin = e.target.value }} name="age-min" defaultValue={item.AgeMin} className="mt-2 h-10 border border-gray-200 rounded-md outline-none px-2 focus:border-gray-400" />
-                                 </td>
-                                 <td className="py-3 px-3">
-                                    <input type="text" id="age-max" name="age-max" onChange={(e) => { audiences[index].AgeMax = e.target.value }} defaultValue={item.AgeMax} className="mt-2 h-10 border border-gray-200 rounded-md outline-none px-2 focus:border-gray-400" />
-                                 </td>
-                                 <td className="py-3 px-3">
-                                    <select name={`race${index}`} id={`race-select${index}`} onChange={(e) => { audiences[index].Race = e.target.value }} className="h-10 px-1 rounded-md border border-gray-200 outline-none w-full" defaultValue={item.Race}>
-                                       <option value="">Select a race</option>
-                                       <option value="asian">Asian</option>
-                                       <option value="asian">African America</option>
-                                       <option value="american-indian">American Indian</option>
-                                       <option value="black">Black</option>
-                                       <option value="hispanic">Hispanic</option>
-                                       <option value="native-hawaiian">Native Hawaiian</option>
-                                       <option value="white">White</option>
-                                    </select>
-                                 </td>
-                                 <td className="py-3 px-3">
-                                    <select name={`gender${index}`} id={`gender-select${index}`} onChange={(e) => { audiences[index].Gender = e.target.value }} className="h-10 px-1 rounded-md border border-gray-200 outline-none w-full" defaultValue={item.Gender}>
-                                       <option value="">Select a gender</option>
-                                       <option value="male">Male</option>
-                                       <option value="female">Female</option>
-                                       <option value="everyone">Everyone</option>
-                                    </select>
-                                 </td>
-                                 <td className="flex justify-end items-center h-[72.5px] py-3">
-                                    <button onClick={(e) => { removeElementFromArray(audiences, index, setAudiences) }} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white">
-                                       <TrashIcon className="w-5 h-5 text-gray-400" />
-                                    </button>
-                                 </td>
-                              </tr>
-                           );
-                        })}
-                     </tbody>
-
-                  </table>
-                  <div className="flex mt-1 items-center">
-                     <h2 className="text-2xl font-semibold flex-1"></h2>
-                     <button id="audienceSave" className="h-10 rounded-md shadow-md bg-black text-white flex py-2 px-4 items-center hover:bg-gray-600" onClick={UpdateAudiences}>
-                        <p className="text-white ml-1">Save</p>
-                     </button>
-                  </div>
-               </div>
+        
                <div className="bg-white border border-gray-400 rounded-lg py-4 px-6 flex flex-col mt-4">
                   <h2 className="text-2xl font-semibold mb-4">Delete</h2>
                   <p>Deleting the courses will delete all quizes and the collected data. Contributors will no longer be able to take any of the quizes.</p>

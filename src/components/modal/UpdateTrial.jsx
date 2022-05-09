@@ -29,20 +29,20 @@ export default function UpdateTrialModal({
             }).then(e2 => {
                 notificationSuccess.style.display = "block";
                 updateBTN.children[0].classList.add("hidden")
-                updateBTN.children[1].innerText = "Update Trial"
+                updateBTN.children[1].innerText = "Update Courses"
 
                 updateBTN.disabled = false;
             }).catch((error) => {
                 notificationError.style.display = "none";
                 updateBTN.children[0].classList.add("hidden");
-                updateBTN.children[1].innerText = "Update Trial";
+                updateBTN.children[1].innerText = "Update Courses";
                 updateBTN.disabled = false;
             });
         } catch (error) {
 
         }
         updateBTN.children[0].classList.add("hidden")
-        updateBTN.children[1].innerText = "Update Trial";
+        updateBTN.children[1].innerText = "Update Courses";
         updateBTN.disabled = false;
     }
 
@@ -82,7 +82,7 @@ export default function UpdateTrialModal({
         >
             <Modal.Header  >
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Update Trial
+                    Update Courses
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="show-grid">
@@ -108,7 +108,7 @@ export default function UpdateTrialModal({
                         <Form.Label>Image</Form.Label>
                         <input required name="image" placeholder="Image link" id="updateimage" className="border rounded pt-2 pb-2 border-gray-400 pl-4 pr-4" />
                     </Form.Group>
-                    <Form.Group className="mb-3 grid" controlId="formGroupName">
+                    <Form.Group className="mb-3 grid hidden" controlId="formGroupName">
                         <Form.Label>Budget</Form.Label>
                         <div className="input-group">
                             <span className="input-group-addon text-sm pt-2 pb-2 pl-3 pr-3 font-normal -mr-1 leading-none text-gray-700 text-center bg-gray-200 border-gray-400 border rounded">
@@ -120,7 +120,7 @@ export default function UpdateTrialModal({
                     <div className="d-grid">
                         <Button name="updateBTN" type='submit' style={{ 'display': 'flex' }} className='w-3/12 h-12 flex justify-center items-center' variant='outline-dark' >
                             <i id='LoadingICON' name='LoadingICON' className="select-none block w-12 m-0 fa fa-circle-o-notch fa-spin hidden"></i>
-                            <span id='buttonText'>Update Trial</span>
+                            <span id='buttonText'>Update Courses</span>
                         </Button>
                     </div>
                 </Form>

@@ -43,7 +43,7 @@ export default function App() {
             }
           />
           <Route
-            path="/courses/:id/survey/:id"
+            path="/courses/:id/quiz/:id"
             element={
               <RequireAuth>
                 <SurveyDetails />

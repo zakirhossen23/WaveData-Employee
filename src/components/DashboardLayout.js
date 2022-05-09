@@ -1,5 +1,5 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import BeakerIcon from '@heroicons/react/solid/BeakerIcon';
+import BeakerIcon from '@heroicons/react/solid/AcademicCapIcon';
 import UserGroupIcon from '@heroicons/react/solid/UserGroupIcon';
 import CurrencyDollarIcon from '@heroicons/react/solid/CurrencyDollarIcon';
 import ArrowCircleLeftIcon from '@heroicons/react/solid/ArrowCircleLeftIcon';

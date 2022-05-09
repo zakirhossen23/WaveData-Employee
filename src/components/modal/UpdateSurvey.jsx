@@ -29,20 +29,20 @@ export default function UpdateTrialModal({
             }).then(e2 => {
                 notificationSuccess.style.display = "block";
                 updateBTN.children[0].classList.add("hidden")
-                updateBTN.children[1].innerText = "Update Survey"
+                updateBTN.children[1].innerText = "Update Quiz"
 
                 updateBTN.disabled = false;
             }).catch((error) => {
                 notificationError.style.display = "none";
                 updateBTN.children[0].classList.add("hidden");
-                updateBTN.children[1].innerText = "Update Survey";
+                updateBTN.children[1].innerText = "Update Quiz";
                 updateBTN.disabled = false;
             });
         } catch (error) {
 
         }
         updateBTN.children[0].classList.add("hidden")
-        updateBTN.children[1].innerText = "Update Survey";
+        updateBTN.children[1].innerText = "Update Quiz";
         updateBTN.disabled = false;
     }
 
@@ -81,7 +81,7 @@ export default function UpdateTrialModal({
         >
             <Modal.Header  >
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Update Survey
+                    Update Quiz
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="show-grid">
@@ -119,7 +119,7 @@ export default function UpdateTrialModal({
                     <div className="d-grid">
                         <Button name="updateBTN" type='submit' style={{ 'display': 'flex' }} className='w-3/12 h-12 flex justify-center items-center' variant='outline-dark' >
                             <i id='LoadingICON' name='LoadingICON' className="select-none block w-12 m-0 fa fa-circle-o-notch fa-spin hidden"></i>
-                            <span id='buttonText'>Update Survey</span>
+                            <span id='buttonText'>Update Quiz</span>
                         </Button>
                     </div>
                 </Form>

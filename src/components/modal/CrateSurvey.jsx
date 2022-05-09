@@ -31,7 +31,7 @@ export default function CreateSurveyModal({
             }).then(e2 => {
                 notificationSuccess.style.display = "block";
                 surveyBTN.children[0].classList.add("hidden")
-                surveyBTN.children[1].innerText = "Create Survey"
+                surveyBTN.children[1].innerText = "Create Quiz"
                 name.value = "";
                 description.value = "";
                 image.value = "";
@@ -40,14 +40,14 @@ export default function CreateSurveyModal({
             }).catch((error) => {
                 notificationError.style.display = "none";
                 surveyBTN.children[0].classList.add("hidden");
-                surveyBTN.children[1].innerText = "Create Survey";
+                surveyBTN.children[1].innerText = "Create Quiz";
                 surveyBTN.disabled = false;
             });
         } catch (error) {
 
         }
         surveyBTN.children[0].classList.add("hidden")
-        surveyBTN.children[1].innerText = "Create Survey";
+        surveyBTN.children[1].innerText = "Create Quiz";
         surveyBTN.disabled = false;
     }
 
@@ -61,7 +61,7 @@ export default function CreateSurveyModal({
         >
             <Modal.Header  >
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Create Survey
+                    Create Quiz
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="show-grid">
@@ -100,7 +100,7 @@ export default function CreateSurveyModal({
                     <div className="d-grid">
                         <Button name="surveyBTN" type='submit' style={{ 'display': 'flex' }} className='w-3/12 h-12 flex justify-center items-center' variant='outline-dark' >
                             <i id='LoadingICON' name='LoadingICON' className="select-none block w-12 m-0 fa fa-circle-o-notch fa-spin hidden"></i>
-                            <span id='buttonText'>Create Survey</span>
+                            <span id='buttonText'>Create Quiz</span>
                         </Button>
                     </div>
                 </Form>
