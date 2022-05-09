@@ -80,8 +80,7 @@ function Login() {
          <div className="bg-white flex-1 flex flex-col justify-center items-center">
             <div className="pl-20 pr-20">
                <img src={logoicon} className="w-3/4 mx-auto" alt="WaveData Logo" />
-               <h1 className="text-4xl font-semibold mt-10">Your data is the cure.</h1>
-               <p className="mt-3">By sharing data people can help finding the cure and be part of the solution.</p>
+               <h4 className="text-4xl font-semibold mt-10">Next business steps together</h4>
                <div id='notification-success' style={{ display: 'none' }} className="mt-4 text-center bg-gray-200 relative text-gray-500 py-3 px-3 rounded-lg">
                   Success!
                </div>
