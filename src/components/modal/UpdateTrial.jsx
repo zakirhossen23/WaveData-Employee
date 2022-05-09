@@ -19,10 +19,10 @@ export default function UpdateTrialModal({
         updateBTN.children[1].innerText = ""
         updateBTN.disabled = true;
         try {
-            await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/UpdateTrial?idTXT=${id}&imageTXT=${encodeURIComponent(image.value)}&titleTXT=${encodeURIComponent(title.value)}&descriptionTXT=${encodeURIComponent(description.value)}&contributorsTXT=0&audienceTXT=0&budgetTXT=${budget.value}`, {
+            await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/UpdateTrial?idTXT=${id}&imageTXT=${encodeURIComponent(image.value)}&titleTXT=${encodeURIComponent(title.value)}&descriptionTXT=${encodeURIComponent(description.value)}&contributorsTXT=0&audienceTXT=0&budgetTXT=${budget.value}`, {
                 "headers": {
                     "accept-language": "en-US,en;q=0.9",
-                    "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                    "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                 },
                 "body": null,
                 "method": "GET"
@@ -48,10 +48,10 @@ export default function UpdateTrialModal({
 
     async function LoadData() {
         
-        await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/GetTrial?idTXT=${parseInt(id)}`, {
+        await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/GetTrial?idTXT=${parseInt(id)}`, {
             "headers": {
                 "accept-language": "en-US,en;q=0.9",
-                "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"

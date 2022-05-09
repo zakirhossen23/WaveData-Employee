@@ -75,10 +75,10 @@ function SurveyDetails() {
       var categoryimagelink = document.getElementsByName("imagelink")[0]
       var Work = new Promise(async (resolve, reject) => {
          const textwork = `createCategories?nameTXT=${categoryname.value}&imageTXT=${categoryimagelink.value}`;
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textwork}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textwork}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -112,10 +112,10 @@ function SurveyDetails() {
       addSectionBTN.classList.add("bg-gray-400")
       addSectionBTN.classList.add("cursor-default")
       addSectionBTN.disabled = true;
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/CreateSection?SurveyidTXT=${(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/CreateSection?SurveyidTXT=${(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -145,10 +145,10 @@ function SurveyDetails() {
       addQuestionBTN.classList.add("cursor-default")
       addQuestionBTN.disabled = true;
 
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/CreateQuestion?sectionidTXT=${encodeURIComponent(sectionsidTXT)}&surveyID=${encodeURIComponent(params.id)}&trialidTXT=${parseInt(location.state.trialID)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/CreateQuestion?sectionidTXT=${encodeURIComponent(sectionsidTXT)}&surveyID=${encodeURIComponent(params.id)}&trialidTXT=${parseInt(location.state.trialID)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -180,10 +180,10 @@ function SurveyDetails() {
    async function LoadDataTrial() {
       setstatus("loading...")
       setTRIAL_DATA({})
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/GetTrial?idTXT=${parseInt(location.state.trialID)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/GetTrial?idTXT=${parseInt(location.state.trialID)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -197,10 +197,10 @@ function SurveyDetails() {
    async function LoadSurveyData() {
       setstatus("loading...")
       setSURVEY_DATA({})
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/SelectSurveyByID?idTXT=${encodeURIComponent(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/SelectSurveyByID?idTXT=${encodeURIComponent(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -217,10 +217,10 @@ function SurveyDetails() {
       setstatus("loading...")
       setsectionsdata([])
       sleep(100)
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/LoadSection?surveyIDTXT=${encodeURIComponent(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/LoadSection?surveyIDTXT=${encodeURIComponent(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -238,10 +238,10 @@ function SurveyDetails() {
       setstatus("loading...")
       setsectionsQuestionsdata([])
       sleep(100)
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/LoadQuestionBySurveyID?surveyIDTXT=${encodeURIComponent(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/LoadQuestionBySurveyID?surveyIDTXT=${encodeURIComponent(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -258,10 +258,10 @@ function SurveyDetails() {
       setstatus("loading...")
       setdataCategory([])
       sleep(100)
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/GetCategories`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/GetCategories`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -282,10 +282,10 @@ function SurveyDetails() {
       setstatus("loading...")
       setLimitedAnswerdata([])
       sleep(100)
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/LoadLimitedAnswers?surveyIDTXT=${parseInt(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/LoadLimitedAnswers?surveyIDTXT=${parseInt(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -308,10 +308,10 @@ function SurveyDetails() {
       AddLimitedBTN.classList.add("cursor-default")
       AddLimitedBTN.disabled = true;
       let questionidTXT = item.id;
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/CreateLimitedAnswer?questionidTXT=${encodeURIComponent(questionidTXT)}&surveyidTXT=${encodeURIComponent(params.id)}&sectionidTXT=${encodeURIComponent(item.sectionid)}&trialidTXT=${parseInt(location.state.trialID)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/CreateLimitedAnswer?questionidTXT=${encodeURIComponent(questionidTXT)}&surveyidTXT=${encodeURIComponent(params.id)}&sectionidTXT=${encodeURIComponent(item.sectionid)}&trialidTXT=${parseInt(location.state.trialID)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -337,10 +337,10 @@ function SurveyDetails() {
          await sectionsdata.forEach(async (element) => {
             const textUpdate = `UpdateSection?idTXT=${encodeURIComponent(element.id)}&categoryTXT=${encodeURIComponent(element.category)}`
             var waitUpdate = new Promise(async (resolve2, reject) => {
-               await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+               await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
                   "headers": {
                      "accept-language": "en-US,en;q=0.9",
-                     "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                     "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                   },
                   "body": null,
                   "method": "GET"
@@ -365,10 +365,10 @@ function SurveyDetails() {
          await sectionsdata.forEach(async (element) => {
             const textUpdate = `UpdateSectionDescription?idTXT=${encodeURIComponent(element.id)}&DescriptionTXT=${encodeURIComponent(element.description)}`
             var waitUpdate = new Promise(async (resolve2, reject) => {
-               await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+               await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
                   "headers": {
                      "accept-language": "en-US,en;q=0.9",
-                     "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                     "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                   },
                   "body": null,
                   "method": "GET"
@@ -388,10 +388,10 @@ function SurveyDetails() {
    async function updateQuestionType(idTXT, typeTXT) {
       setstatus("saving...")
       const textUpdate = `UpdateQuestion?idTXT=${encodeURIComponent(idTXT)}&typeTXT=${encodeURIComponent(typeTXT)}&questionTXT=""&way=type&questiontype2TXT=${encodeURIComponent()}`
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -404,10 +404,10 @@ function SurveyDetails() {
    async function updateQuestionAnswerType(idTXT, typeAnserTXT) {
       setstatus("saving...")
       const textUpdate = `UpdateQuestion?idTXT=${encodeURIComponent(idTXT)}&way=answertype&questiontype2TXT=${encodeURIComponent(typeAnserTXT)}`
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -510,10 +510,10 @@ function SurveyDetails() {
       document.getElementById("surveyDelete").classList.remove("cursor-pointer");
       var Delete = new Promise(async (resolve, reject) => {
          const textDelete = `DeleteSurvey?idTXT=${encodeURIComponent(params.id)}`;
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -524,7 +524,7 @@ function SurveyDetails() {
 
       });
       await Delete
-      navigate(`/trials/${location.state.trialID}`, { replace: true })
+      navigate(`/courses/${location.state.trialID}`, { replace: true })
       document.getElementById("surveyDelete").disabled = false;
       document.getElementById("surveyDelete").classList.add("hover:bg-white");
       document.getElementById("surveyDelete").classList.add("cursor-pointer");
@@ -570,10 +570,10 @@ function SurveyDetails() {
       sectionDeleteBTN.classList.remove("cursor-pointer");
       var Delete = new Promise(async (resolve, reject) => {
          const textDelete = `DeleteSection?idTXT=${decodeURIComponent(sectionid)}`;
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -596,10 +596,10 @@ function SurveyDetails() {
       let questionid = DeleteQuestionBTN.getAttribute("questionid")
       var Delete = new Promise(async (resolve, reject) => {
          const textDelete = `DeleteQuestion?idTXT=${encodeURIComponent(questionid)}`;
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -620,10 +620,10 @@ function SurveyDetails() {
       let orderid = DeleteBTN.getAttribute("orderid")
       var Delete = new Promise(async (resolve, reject) => {
          const textDelete = `DeleteLimitedAnswerByID?idTXT=${encodeURIComponent(id)}`;
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -644,10 +644,10 @@ function SurveyDetails() {
       let id = item.id
       var Duplicate = new Promise(async (resolve, reject) => {
          const textDelete = `DeleteLimitedAnswerByID?idTXT=${encodeURIComponent(id)}`;
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -694,10 +694,10 @@ function SurveyDetails() {
       let questionTXT = inputbox.value;
       sectionsQuestionsdata.filter(e2 => { return e2.id == questionid })[0].question = questionTXT; 
       const textUpdate = `UpdateQuestion?idTXT=${encodeURIComponent(questionid)}&typeTXT=""&questionTXT=${encodeURIComponent(questionTXT)}&way=question`
-      fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+      fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -717,10 +717,10 @@ function SurveyDetails() {
       let DescriptionTXT = inputbox.value;
       const textUpdate = `UpdateSectionDescription?idTXT=${encodeURIComponent(id)}&DescriptionTXT=${encodeURIComponent(DescriptionTXT)}`
       var waitUpdate = new Promise(async (resolve2, reject) => {
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -745,10 +745,10 @@ function SurveyDetails() {
       let answerid = item.id;
       let answerTXT = inputbox.value;
       const textUpdate = `UpdateLimitedQuestion?idTXT=${encodeURIComponent(answerid)}&answerTXT=${encodeURIComponent(answerTXT)}`
-      fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+      fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -767,10 +767,10 @@ function SurveyDetails() {
          for (let index = 0; index < sectionsQuestionsdata.length; index++) {
             const eleQ = sectionsQuestionsdata[index];
             axios
-               .post(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/GetSurveyAnswers?questionidTXT=${encodeURIComponent(eleQ.id)}`, {}, {
+               .post(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/GetSurveyAnswers?questionidTXT=${encodeURIComponent(eleQ.id)}`, {}, {
                   headers: {
                      "accept-language": "en-US,en;q=0.9",
-                     "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                     "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                   }
                }).then((res) => {
                   if (res.status === 200) {

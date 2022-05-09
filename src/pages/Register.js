@@ -6,8 +6,8 @@ function Register() {
 
     window.onload = (e) => {
         if (Cookies.get("login") == "true") {
-            navigate("/trials",{replace:true});
-            window.location.href = "/trials";
+            navigate("/courses",{replace:true});
+            window.location.href = "/courses";
         }
     };
     function loginLink() {
@@ -38,10 +38,10 @@ function Register() {
         }
 
         try {
-            await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/checkemail?emailTXT=${encodeURIComponent(emailTXT.value)}`, {
+            await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/checkemail?emailTXT=${encodeURIComponent(emailTXT.value)}`, {
                 "headers": {
                     "accept-language": "en-US,en;q=0.9",
-                    "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                    "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                 },
                 "body": null,
                 "method": "GET"
@@ -49,10 +49,10 @@ function Register() {
                 return e.json();
             }).then(async (e) => {
                 if (e.results[1]['(SV.size())'] == 0) {
-                    await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/CreateAccount?FullNameTXT=${encodeURIComponent(FullNameTXT.value)}&emailTXT=${encodeURIComponent(emailTXT.value)}&passwordTXT=${encodeURIComponent(passwordTXT.value)}`, {
+                    await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/CreateAccount?FullNameTXT=${encodeURIComponent(FullNameTXT.value)}&emailTXT=${encodeURIComponent(emailTXT.value)}&passwordTXT=${encodeURIComponent(passwordTXT.value)}`, {
                         "headers": {
                             "accept-language": "en-US,en;q=0.9",
-                            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                         },
                         "body": null,
                         "method": "GET"

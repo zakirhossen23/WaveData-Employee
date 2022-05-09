@@ -2,15 +2,15 @@ import Cookies from 'js-cookie'
 import { useNavigate } from "react-router-dom";
 import logoicon from '../assets/wave-data-logo.svg'
 function Login() {
-   let navigate = useNavigate();
+      let navigate = useNavigate();
    window.onload = (e) => {
-      if (Cookies.get("login") == "true") {
-         navigate("/trials", { replace: true });
+      if (Cookies.get("login") == "true") {      
+         navigate("/courses",{replace:true});
       }
    };
 
    function registerLink() {
-      navigate("/register", { replace: true });
+      navigate("/register",{replace:true});
    }
    async function LoginClick(event) {
       event.target.disabled = true;
@@ -33,36 +33,25 @@ function Login() {
          return;
       }
       try {
-         var details = {
-            "query": `SELECT COUNT(*) AS SIZE FROM WaveData.users WHERE email = "${emailTXT.value}" AND PASSWORD = "${passwordTXT.value}"`
-         };
-
-         var formBody = [];
-         for (var property in details) {
-            var encodedKey = encodeURIComponent(property);
-            var encodedValue = encodeURIComponent(details[property]);
-            formBody.push(encodedKey + "=" + encodedValue);
-         }
-         formBody = formBody.join("&");
-         await fetch(`/serverless/query`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/Login?emailTXT=${encodeURIComponent(emailTXT.value)}&passwordTXT=${encodeURIComponent(passwordTXT.value)}`, {
             "headers": {
-               "Content-Type": "application/x-www-form-urlencoded",
-               "mode": "cors"
+               "accept-language": "en-US,en;q=0.9",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
-            "body": formBody,
-            "method": "POST"
+            "body": null,
+            "method": "GET"
          }).then(e => {
             return e.json();
-         }).then(e2 => {
-            console.log(e2)
-            if (e2[0].SIZE == 1) {
+         }).then(e => {
+            console.log(e)
+            if (e.results[1]['(SV.size())'] == 1) {
                LoadingICON.style.display = "none";
                buttonTextBox.style.display = "block";
                SuccessNotification.innerText = "Success!"
                SuccessNotification.style.display = "block";
                //Login success
                Cookies.set("login", "true");
-               navigate("/trials", { replace: true });
+               navigate("/courses",{replace:true});
 
             } else {
                LoadingICON.style.display = "none";

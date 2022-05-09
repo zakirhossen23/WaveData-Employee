@@ -1,8 +1,8 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import BeakerIcon from '@heroicons/react/solid/BeakerIcon';
-import UserGroupIcon from '@heroicons/react/solid/BeakerIcon';
-import CurrencyDollarIcon from '@heroicons/react/solid/BeakerIcon';
-import ArrowCircleLeftIcon from '@heroicons/react/solid/BeakerIcon';
+import UserGroupIcon from '@heroicons/react/solid/UserGroupIcon';
+import CurrencyDollarIcon from '@heroicons/react/solid/CurrencyDollarIcon';
+import ArrowCircleLeftIcon from '@heroicons/react/solid/ArrowCircleLeftIcon';
 import Cookies from 'js-cookie'
 import navicationIcon from '../assets/navigation-panel-logo.svg'
 
@@ -13,10 +13,10 @@ function DashboardLayout() {
 
    const ROUTES = [
       {
-         id: 'trials',
+         id: 'courses',
          IconComponent: BeakerIcon,
-         title: 'Trials',
-         route: '/trials',
+         title: 'Courses',
+         route: '/courses',
       },
       {
          id: 'team',

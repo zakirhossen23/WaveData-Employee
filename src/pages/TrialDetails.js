@@ -40,8 +40,8 @@ function TrialDetails() {
 
    const TABS = [
       {
-         id: 'surveys',
-         title: 'Surveys',
+         id: 'quizes',
+         title: 'Quizes',
       },
       {
          id: 'contributors',
@@ -131,10 +131,10 @@ function TrialDetails() {
 
    const addAudiance = async () => {
 
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/CreateAudience?TrialidTXT=${(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/CreateAudience?TrialidTXT=${(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -162,10 +162,10 @@ function TrialDetails() {
          await audiences.forEach(async (element) => {
             const textUpdate = `updateAudience?idTXT=${parseInt(element.id)}&AgeMinTXT=${Number(element.AgeMin)}&AgeMaxTXT=${Number(element.AgeMax)}&RaceTXT=${encodeURIComponent(element.Race)}&GenderTXT=${encodeURIComponent(element.Gender)}`
             var waitUpdate = new Promise(async (resolve2, reject) => {
-               await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+               await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
                   "headers": {
                      "accept-language": "en-US,en;q=0.9",
-                     "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                     "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                   },
                   "body": null,
                   "method": "GET"
@@ -200,10 +200,10 @@ function TrialDetails() {
       var done = new Promise(async (resolve, reject) => {
          const textUpdate = `saveReward?TrialidTXT=${parseInt(params.id)}&rewardtypeTXT=${rewardselect.value}&rewardpriceTXT=${Number(rewardprice.value.replace("$", ""))}&totalSpendingLimitTXT=${parseInt(totalspendlimit.value.replace("$", ""))}`
          var waitUpdate = new Promise(async (resolve2, reject) => {
-            await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
+            await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textUpdate}`, {
                "headers": {
                   "accept-language": "en-US,en;q=0.9",
-                  "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                  "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                },
                "body": null,
                "method": "GET"
@@ -226,10 +226,10 @@ function TrialDetails() {
       seting([])
       var done = new Promise(async (resolve, reject) => {
          const textDelete = `DeleteAudience?idTXT=${parseInt(all[specific].id)}`
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -253,10 +253,10 @@ function TrialDetails() {
    }
    async function LoadData() {
       setTRIAL_DATA({})
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/GetTrial?idTXT=${parseInt(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/GetTrial?idTXT=${parseInt(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -270,10 +270,10 @@ function TrialDetails() {
    async function LoadDataSurvey() {
       setData([])
       sleep(10)
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/SelectSurveyByTrialid?TrialidTXT=${parseInt(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/SelectSurveyByTrialid?TrialidTXT=${parseInt(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -290,10 +290,10 @@ function TrialDetails() {
 
    async function LoadAudiences() {
       setAudiences([])
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/LoadAudience?TrialidTXT=${parseInt(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/LoadAudience?TrialidTXT=${parseInt(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -313,10 +313,10 @@ function TrialDetails() {
    async function LoadRewards() {
       setREWARD_DATA({})
       var done = new Promise(async (resolve, reject) => {
-       await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/GetRewards?idTXT=${parseInt(params.id)}`, {
+       await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/GetRewards?idTXT=${parseInt(params.id)}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -334,10 +334,10 @@ function TrialDetails() {
    async function LoadDataContributors() {
       setContributors([])
       sleep(10)
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/getContributors?TrialidTXT=${parseInt(params.id)}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/getContributors?TrialidTXT=${parseInt(params.id)}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -354,10 +354,10 @@ function TrialDetails() {
    async function deleteTrial() {
       var Delete = new Promise(async (resolve, reject) => {
          const textDelete = `DeleteTrial?TrialidTXT=${parseInt(params.id)}`;
-         await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
+         await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/${textDelete}`, {
             "headers": {
                "accept-language": "en-US,en;q=0.9",
-               "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+               "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
             },
             "body": null,
             "method": "GET"
@@ -367,7 +367,7 @@ function TrialDetails() {
 
       });
       await Delete
-      navigate("/trials", { replace: true })
+      navigate("/courses", { replace: true })
    }
 
    useEffect(async () => {
@@ -398,7 +398,7 @@ function TrialDetails() {
          </div>
          <div className={`bg-white border border-gray-400 rounded-lg overflow-hidden mb-2`}>
             <div className="flex p-6">
-               <img src={TRIAL_DATA?.image} alt="Trial" className="object-cover max-w-xs" />
+               <img src={TRIAL_DATA?.image} alt="Courses" className="object-cover max-w-xs" />
                <div className="mx-8 flex-1">
                   <p className="text-3xl font-semibold">{TRIAL_DATA?.title}</p>
                   <p className="mt-6">{TRIAL_DATA?.description}</p>
@@ -441,7 +441,7 @@ function TrialDetails() {
          {tabIndex === 0 && (
             <div className="bg-white border border-gray-400 rounded-lg py-4 px-6 flex flex-col mt-4">
                <div className="flex items-center">
-                  <h2 className="text-2xl font-semibold flex-1">Surveys</h2>
+                  <h2 className="text-2xl font-semibold flex-1">Quizes</h2>
                   <button onClick={addSurvey} className="h-10 rounded-md shadow-md bg-black text-white flex py-2 px-4 items-center">
                      <PlusSmIcon className="w-5 h-5 text-white" />
                      <p className="text-white ml-2">Survey</p>
@@ -474,7 +474,7 @@ function TrialDetails() {
                               <td className="py-3 px-3">{`${submission}/24`}</td>
                               <td className="py-3 px-3">{Lastsubmission ? formatDistance(new Date(Lastsubmission), new Date(), { addSuffix: true }) : '-'}</td>
                               <td className="flex justify-end py-3">
-                                 <button onClick={() => navigate(`/trials/${TRIAL_DATA.id}/survey/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white">
+                                 <button onClick={() => navigate(`/courses/${TRIAL_DATA.id}/survey/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center hover:bg-white">
                                     <ArrowRightIcon className="w-5 h-5 text-gray-400 " />
                                  </button>
                               </td>
@@ -521,7 +521,7 @@ function TrialDetails() {
                               <td className="py-3 px-3">{`${submission}/24`}</td>
                               <td className="py-3 px-3">{Lastsubmission ? formatDistance(new Date(Lastsubmission), new Date(), { addSuffix: true }) : '-'}</td>
                               <td className="flex justify-end py-3">
-                                 <button onClick={() => navigate(`/trials/${TRIAL_DATA.id}/survey/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center">
+                                 <button onClick={() => navigate(`/courses/${TRIAL_DATA.id}/survey/${id}`, { state: { trialID: TRIAL_DATA.id } })} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center">
                                     <ArrowRightIcon className="w-5 h-5 text-gray-400" />
                                  </button>
                               </td>
@@ -636,7 +636,7 @@ function TrialDetails() {
                </div>
                <div className="bg-white border border-gray-400 rounded-lg py-4 px-6 flex flex-col mt-4">
                   <h2 className="text-2xl font-semibold mb-4">Delete</h2>
-                  <p>Deleting the trial will delete all surveys and the collected data. Contributors will no longer be able to take any of the surveys.</p>
+                  <p>Deleting the courses will delete all quizes and the collected data. Contributors will no longer be able to take any of the quizes.</p>
                   <button className="mt-4 flex self-start px-2 h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center text-gray-400 hover:bg-white hover:text-red-700" onClick={deleteTrial}>
                      <TrashIcon className="w-5 h-5 mr-2" />Delete
                   </button>

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CreateTrialModal from '../components/modal/CrateTrial'
 
-function Trials() {
+function Courses() {
    const navigate = useNavigate();
    const [data, setData] = useState([]);
    const [CreatemodalShow, setModalShow] = useState(false);
@@ -20,10 +20,10 @@ function Trials() {
 
    async function LoadData() {
       setData([])
-      await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/SelectTrial?offsetINT=${startData}`, {
+      await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/SelectTrial?offsetINT=${startData}`, {
          "headers": {
             "accept-language": "en-US,en;q=0.9",
-            "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+            "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
          },
          "body": null,
          "method": "GET"
@@ -49,10 +49,10 @@ function Trials() {
    return (
       <>
          <div className="bg-white border border-gray-400 rounded-lg py-4 px-6 flex mb-2 items-center">
-            <h1 className="text-2xl font-semibold flex-1 text-gray-500">Medical trials</h1>
+            <h1 className="text-2xl font-semibold flex-1 text-gray-500">Sharing courses</h1>
             <button onClick={addTrial} className="h-10 rounded-md shadow-md bg-black text-white flex py-2 px-4 items-center">
                <PlusSmIcon className="w-5 h-5 text-white" />
-               <p className="text-white ml-2">Trial</p>
+               <p className="text-white ml-2">Courses</p>
             </button>
          </div>
          {data.map(({ id, title, image, description, contributors, audience, budget }, index) => {
@@ -60,12 +60,12 @@ function Trials() {
             return (               
                <div className={`bg-white border border-gray-400 rounded-lg overflow-hidden ${!IS_LAST && 'mb-2'}`}>
                   <div className="flex p-6">
-                     <img src={image} alt="Trial" className="w-[128px] h-[128px] object-cover max-w-xs" />
+                     <img src={image} alt="Courses" className="w-[128px] h-[128px] object-cover max-w-xs" />
                      <div className="mx-8 flex-1">
                         <p className="text-3xl font-semibold">{title}</p>
                         <p className="mt-6">{`${description.slice(0, 180)}...`}</p>
                      </div>
-                     <button onClick={() => navigate(`/trials/${id}`)} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center">
+                     <button onClick={() => navigate(`/courses/${id}`)} className="flex w-[52px] h-10 border border-gray-400 bg-gray-200 rounded-md justify-center items-center">
                         <ArrowRightIcon className="w-5 h-5 text-gray-400" />
                      </button>
                   </div>
@@ -97,4 +97,4 @@ function Trials() {
    );
 }
 
-export default Trials;
+export default Courses;

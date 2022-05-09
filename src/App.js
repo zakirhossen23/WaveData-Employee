@@ -27,7 +27,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route element={<DashboardLayout />}>
           <Route
-            path="/trials"
+            path="/courses"
             element={
               <RequireAuth>
                 <Trials />
@@ -35,7 +35,7 @@ export default function App() {
             }
           />
           <Route
-            path="/trials/:id"
+            path="/courses/:id"
             element={
               <RequireAuth>
                 <TrialDetails />
@@ -43,7 +43,7 @@ export default function App() {
             }
           />
           <Route
-            path="/trials/:id/survey/:id"
+            path="/courses/:id/survey/:id"
             element={
               <RequireAuth>
                 <SurveyDetails />
@@ -68,9 +68,7 @@ export default function App() {
           />
         </Route>
       </Routes>
-    </BrowserRouter >
-
-  );
+    </BrowserRouter >);
 
   function RequireAuth({ children }) {
     let location = useLocation();

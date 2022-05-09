@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React,{ useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -23,10 +23,10 @@ export default function CreateTrialModal({
             let cDate = current.getFullYear() + '-' + (current.getMonth() + 1) + '-' + current.getDate();
             let cTime = current.getHours() + ":" + current.getMinutes() + ":" + current.getSeconds();
             let dateTime = cDate + ' ' + cTime;
-            await fetch(`https://cors-anyhere.herokuapp.com/https://wavedata.i.tgcloud.io:14240/restpp/query/WaveData/CreateTrial?imageTXT=${encodeURIComponent(image.value)}&titleTXT=${encodeURIComponent(title.value)}&descriptionTXT=${encodeURIComponent(description.value)}&contributorsTXT=0&audienceTXT=0&budgetTXT=${parseInt(budget.value)}&dateTXT=${encodeURIComponent(dateTime)}`, {
+            await fetch(`https://cors-anyhere.herokuapp.com/https://test.i.tgcloud.io:14240/restpp/query/WaveData/CreateTrial?imageTXT=${encodeURIComponent(image.value)}&titleTXT=${encodeURIComponent(title.value)}&descriptionTXT=${encodeURIComponent(description.value)}&contributorsTXT=0&audienceTXT=0&budgetTXT=${parseInt(budget.value)}&dateTXT=${encodeURIComponent(dateTime)}`, {
                 "headers": {
                     "accept-language": "en-US,en;q=0.9",
-                    "Authorization": "Bearer h6t28nnpr3e58pdm1c1miiei4kdcejuv",
+                    "Authorization": "Bearer n63cf58df61rvnp6dgeq4a4rolokeoe8",
                 },
                 "body": null,
                 "method": "GET"

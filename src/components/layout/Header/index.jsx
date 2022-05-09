@@ -12,7 +12,7 @@ export default function Header() {
             </>)
         } else {
             return (<>
-                <li><Link to='/trials'>Dashboard</Link></li>
+                <li><Link to='/courses'>Dashboard</Link></li>
             </>)
         }
     }
